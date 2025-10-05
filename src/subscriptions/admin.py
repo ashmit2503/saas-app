@@ -1,5 +1,6 @@
 from django.contrib import admin
 
+# Register your models here.
 from .models import Subscription, SubscriptionPrice, UserSubscription
 
 class SubscriptionPrice(admin.StackedInline):
@@ -12,6 +13,7 @@ class SubscriptionAdmin(admin.ModelAdmin):
     inlines = [SubscriptionPrice]
     list_display = ['name', 'active']
     readonly_fields = ['stripe_id']
+
 
 admin.site.register(Subscription, SubscriptionAdmin)
 
